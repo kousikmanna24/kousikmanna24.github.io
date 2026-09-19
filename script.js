@@ -1,0 +1,3 @@
+const progress=document.querySelector(".progress");window.addEventListener("scroll",()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=`${(scrollY/max)*100}%`},{passive:true});
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.animate([{opacity:0,transform:"translateY(22px)"},{opacity:1,transform:"translateY(0)"}],{duration:650,easing:"cubic-bezier(.22,1,.36,1)",fill:"forwards"});io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".service-grid article,.work-card,.timeline-item,.about-grid,.intro-copy,.section-head,.hero-text,.hero-image").forEach(el=>io.observe(el));
